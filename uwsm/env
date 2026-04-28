@@ -1,7 +1,4 @@
 # Changes require a restart to take effect.
 
-# Ensure Zeus bins are in the path
-export ZEUS_PATH=$HOME/.local/share/zeus
-
 # Set default terminal and editor
 source ~/.config/uwsm/default
