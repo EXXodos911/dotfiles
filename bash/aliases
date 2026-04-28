@@ -1,0 +1,70 @@
+pkginstall() {
+  fzf_args=(
+    --multi
+    --preview 'pacman -Sii {1}'
+    --preview-label='tab: multi-select'
+    --preview-label-pos='bottom'
+    --preview-window 'down:65%:wrap'
+    --color 'pointer:green,marker:green'
+  )
+
+  pkg_names=$(pacman -Slq | fzf "${fzf_args[@]}")
+
+  if [[ -n $pkg_names ]]; then
+    echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -S
+  fi
+}
+
+pkgremove() {
+  fzf_args=(
+    --multi
+    --preview 'yay -Qi {1}'
+    --preview-label='tab: multi-select'
+    --preview-label-pos='bottom'
+    --preview-window 'down:65%:wrap'
+    --color 'pointer:red,marker:red'
+  )
+
+  pkg_names=$(yay -Qqe | fzf "${fzf_args[@]}")
+
+  if [[ -n $pkg_names ]]; then
+    echo "$pkg_names" | tr '\n' ' ' | xargs sudo pacman -Rns
+  fi
+}
+
+DJHAHDKAJ__poweraction__() {
+  # Prevent direct calls
+  if [[ "${FUNCNAME[1]}" != "DJHAHDKAJ__poweraction__" ]]; then
+    return 1
+  fi
+  
+  case $1 in
+    poweroff) nohup bash -c "sleep 2 && systemctl poweroff --no-wall" >/dev/null 2>&1 & ;;
+    reboot) nohup bash -c "sleep 2 && systemctl reboot --no-wall" >/dev/null 2>&1 & ;;
+    uwsm) nohup bash -c "sleep 2 && uwsm stop" >/dev/null 2>&1 & ;;
+    *) echo "Unknown action: $1" >&2 ; return 1 ;;
+  esac
+  
+  # Close all open windows
+  hyprctl clients -j | jq -r ".[].address" | xargs -I{} hyprctl dispatch closewindow address:{} 2>/dev/null
+  
+  # Move to first workspace
+  hyprctl dispatch workspace 1
+  
+  # Allow apps like Chrome to shutdown correctly
+  sleep 1
+}
+
+alias poweroff='DJHAHDKAJ__poweraction__ poweroff'
+alias reboot='DJHAHDKAJ__poweraction__ reboot'
+alias logout='DJHAHDKAJ__poweraction__ uwsm'
+
+
+if command -v eza &> /dev/null; then
+  alias ls='eza -lh --group-directories-first --icons=auto'
+  alias lt='eza --tree --level=2 --long --icons --git'
+fi
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'

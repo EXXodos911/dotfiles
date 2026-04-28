@@ -1,0 +1,6 @@
+# Editor used by CLI
+export SUDO_EDITOR="$EDITOR"
+export BAT_THEME=ansi
+
+# Duplicated from .config/uwsm/env so SSH works too
+export ZEUS_PATH=$HOME/.local/share/zeus

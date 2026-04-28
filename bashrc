@@ -1,0 +1,4 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
+source ~/.config/bash/rc
