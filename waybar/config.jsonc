@@ -15,8 +15,7 @@
     "bluetooth",
     "network",
     "pulseaudio",
-    "cpu",
-    "battery"
+    "cpu"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
