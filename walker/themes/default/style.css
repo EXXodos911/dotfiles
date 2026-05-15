@@ -79,6 +79,10 @@ child:hover .item-box {
 child:selected .item-box {
 }
 
+child:selected {
+  background: alpha(@text, 0.07);
+}
+
 child:selected .item-box * {
   color: @selected-text;
 }
