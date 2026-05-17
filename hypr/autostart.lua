@@ -9,6 +9,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("uwsm-app -- mako")
 end)
 
-hl.on("config.reload", function ()
+hl.on("config.reloaded", function ()
     hl.exec_cmd("uwsm-app -- swaybg -i ~/.config/wallpapers/1-pawel-czerwinski.jpg -m fill")
 end)

@@ -1,5 +1,5 @@
 -- Float Steam
-www
+
 hl.window_rule({ match = { class = "steam" }, float = true })
 hl.window_rule({ match = { class = "steam", title = "Steam" }, center = true })
 hl.window_rule({ match = { class = "steam", title = "Steam" }, size = { 1100, 700 } })
