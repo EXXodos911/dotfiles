@@ -73,8 +73,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "bindd = SUPER CTRL, S, Sound controls, exec, uwsm app -- xdg-terminal-exec --app-id=TUI.float wiremix",
-    "on-click-right": "pamixer -t",
+    "on-click": "uwsm app -- xdg-terminal-exec --app-id=TUI.float wiremix",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
     "format-muted": "",
