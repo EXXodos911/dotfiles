@@ -3,12 +3,9 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("systemctl --user import-environment $(env | cut -d'=' -f 1)")
     hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 
+    hl.exec_cmd("uwsm-app -- swaybg -i ~/.config/wallpapers/1-pawel-czerwinski.jpg -m fill")
     hl.exec_cmd("uwsm-app -- walker --gapplication-service")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("uwsm-app -- waybar")
     hl.exec_cmd("uwsm-app -- mako")
-end)
-
-hl.on("config.reloaded", function ()
-    hl.exec_cmd("uwsm-app -- swaybg -i ~/.config/wallpapers/1-pawel-czerwinski.jpg -m fill")
 end)
