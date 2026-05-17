@@ -1,0 +1,6 @@
+require("hypr.apps.browser")
+require("hypr.apps.hyprshot")
+require("hypr.apps.pip")
+require("hypr.apps.steam")
+require("hypr.apps.system")
+require("hypr.apps.walker")
