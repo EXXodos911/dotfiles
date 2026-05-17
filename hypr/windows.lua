@@ -19,4 +19,4 @@ hl.window_rule({
 })
 
 -- App-specific tweaks
-require("hypr.apps")
+require("apps")
