@@ -14,3 +14,6 @@ hl.monitor({
     position = "1920x0",
     scale = 1
 })
+
+hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", default = true })
+hl.workspace_rule({ workspace = "2", monitor = "DP-2" })
