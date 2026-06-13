@@ -4,7 +4,7 @@ if command -v eza &> /dev/null; then
 fi
 
 if command -v x86_64-w64-mingw32-gcc &> /dev/null; then
-  alias win-gcc='x86_64-w64-mingw32-gcc'
+  alias wingcc='x86_64-w64-mingw32-gcc'
 fi
 
 alias ..='cd ..'
